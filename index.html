@@ -1059,7 +1059,7 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const h = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
 const esc = (x) => String(x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const today = () => { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); };
-const SAVE_KEY = 'laplace-rush-v1';
+const GUEST_KEY = 'laplace-rush-v1'; let SAVE_KEY = GUEST_KEY;
 const DEFAULT = () => ({ v: 1, alias: '', xp: 0, coins: 150, correct: 0, attempts: 0, streak: 0, bestStreak: 0, cards: {}, packs: 0, pity: 0, ach: {}, byType: {}, guide: {}, lessons: {}, noHintRun: 0, fastest: 0, night: false, early: false, dayStreak: 0, lastDay: '', daily: null, tracks: [], mySlots: 1, bestExam: 0, exams: 0, sound: true, updated: 0 });
 let S = DEFAULT();
 try { const raw = localStorage.getItem(SAVE_KEY); if (raw) S = Object.assign(DEFAULT(), JSON.parse(raw)); } catch (e) { }
@@ -2001,22 +2001,28 @@ const NET = {
     this.sb = supabase.createClient(CFG.url, CFG.key, { auth: { persistSession: true, autoRefreshToken: true } });
     const { data } = await this.sb.auth.getSession();
     await this.setUser(data.session?.user || null);
-    this.sb.auth.onAuthStateChange((_e, s) => { if ((s?.user?.id || null) !== (this.user?.id || null)) this.setUser(s?.user || null); });
+    this.sb.auth.onAuthStateChange((_e, s) => { if (!this.switching && (s?.user?.id || null) !== (this.user?.id || null)) this.setUser(s?.user || null); });
     this.loadBoard(); setInterval(() => { if (!document.hidden && VIEW === 'rank') this.loadBoard(); }, 30000);
     this.joinLobby();
     if (!this.user && !S.guest) this.authDialog();
   },
-  async setUser(u) {
-    this.user = u; this.uname = u?.user_metadata?.username || '';
-    this.mode = u ? 'online' : 'guest';
+  // Cada cuenta tiene su propio progreso (en la nube y en una copia local separada); sin cuenta se usa el progreso de invitado.
+  readLocal(key) { try { const raw = localStorage.getItem(key); return raw ? Object.assign(DEFAULT(), JSON.parse(raw)) : null; } catch (e) { return null; } },
+  switchTo(state, key) { clearTimeout(saveT); SAVE_KEY = key; S = state; migrateCards(); dailyInit(); hud(); try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) { } if (VIEW === 'home') renderHome(); },
+  async setUser(u, fresh) {
+    this.switching = true; this.user = u; this.uname = u?.user_metadata?.username || ''; this.lastPushed = '';
+    this.mode = u ? 'online' : (this.sb ? 'guest' : 'local');
     if (u) {
-      S.alias = this.uname;
-      try {
-        const { data } = await this.sb.from('progress').select('save').eq('id', u.id).maybeSingle();
-        const remote = data?.save;
-        if (remote && (remote.xp || 0) > (S.xp || 0)) { S = Object.assign(DEFAULT(), remote); S.alias = this.uname; migrateCards(); try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) { } dailyInit(); hud(); toast('Progreso recuperado', 'Cargado desde tu cuenta', '✓'); }
-      } catch (e) { }
-      save(); this.push(true); this.presence();
+      const key = GUEST_KEY + ':' + u.id; let local = this.readLocal(key), remote = null;
+      if (!fresh) try { const { data } = await this.sb.from('progress').select('save').eq('id', u.id).maybeSingle(); remote = data?.save ? Object.assign(DEFAULT(), data.save) : null; } catch (e) { }
+      if (this.user?.id !== u.id) return;
+      // gana la copia con más avance (por si quedó progreso local sin subir)
+      let st = remote && (!local || (remote.xp || 0) >= (local.xp || 0)) ? remote : local || DEFAULT();
+      st.alias = this.uname; st.guest = false;
+      this.switchTo(st, key);
+      this.switching = false; this.push(true); this.presence();
+    } else {
+      const g = this.readLocal(GUEST_KEY) || DEFAULT(); this.switchTo(g, GUEST_KEY); this.switching = false;
     }
     this.refresh();
   },
@@ -2024,7 +2030,7 @@ const NET = {
   statusInfo() {
     if (this.mode === 'loading') return { cls: '', t: 'Conectando…', d: 'Revisando tu sesión.' };
     if (this.mode === 'online') return { cls: 'ok', t: 'Conectado como ' + esc(this.uname), d: 'Tu progreso se guarda en tu cuenta y tu puntaje aparece en el ranking.' };
-    if (this.mode === 'guest') return { cls: 'warn', t: 'Estás jugando sin cuenta', d: 'Tu progreso se guarda solo en este navegador y no apareces en el ranking. Crea una cuenta para competir: tu progreso actual se conserva.' };
+    if (this.mode === 'guest') return { cls: 'warn', t: 'Estás jugando sin cuenta', d: 'Tu progreso se guarda solo en este navegador y no apareces en el ranking. Crea una cuenta para competir: cada cuenta tiene su propio progreso desde cero.' };
     return { cls: 'warn', t: 'Ranking no disponible', d: 'No se pudo conectar con el servidor. Tu progreso se guarda en este navegador.' };
   },
   profileCard() {
@@ -2032,7 +2038,7 @@ const NET = {
     if (this.mode === 'online') {
       c.append(h('<div class="row"><b class="grow">Sesión iniciada: <span></span></b><button class="btn sm ghost">Cerrar sesión</button></div>'));
       $('span', c).textContent = this.uname;
-      $('button', c).onclick = async () => { await this.push(true); await this.sb.auth.signOut(); S.guest = true; save(); toast('Sesión cerrada', 'Tu progreso quedó guardado en tu cuenta', '✓'); };
+      $('button', c).onclick = async () => { clearTimeout(saveT); await this.push(true); await this.sb.auth.signOut(); await this.setUser(null); toast('Sesión cerrada', 'Tu progreso quedó guardado en tu cuenta', '✓'); };
     } else if (this.sb) {
       c.append(h('<div class="row"><span class="grow small">Entra o crea una cuenta para aparecer en el ranking.</span><button class="btn sm primary">Entrar / crear cuenta</button></div>'));
       $('button', c).onclick = () => this.authDialog();
@@ -2046,7 +2052,7 @@ const NET = {
     const form = $('form', box), err = $('#autherr', box), segs = $$('.seg button', box);
     const setMode = (m) => { mode = m; segs[0].setAttribute('aria-pressed', String(m === 'login')); segs[1].setAttribute('aria-pressed', String(m === 'signup')); form.p2.closest('label').hidden = m === 'login'; form.p2.required = m === 'signup'; form.p.autocomplete = m === 'login' ? 'current-password' : 'new-password'; $('button[type=submit]', form).textContent = m === 'login' ? 'Entrar' : 'Crear cuenta'; err.textContent = ''; };
     segs[0].onclick = () => setMode('login'); segs[1].onclick = () => setMode('signup');
-    $('#authguest', box).onclick = () => { S.guest = true; save(); ov.hidden = true; ov.innerHTML = ''; this.refresh(); };
+    $('#authguest', box).onclick = () => { S.guest = true; try { localStorage.setItem(GUEST_KEY, JSON.stringify(S)); } catch (e) { } ov.hidden = true; ov.innerHTML = ''; this.refresh(); };
     form.onsubmit = async (e) => {
       e.preventDefault(); err.textContent = '';
       const u = form.u.value.trim(), p = form.p.value;
@@ -2060,7 +2066,7 @@ const NET = {
           : await this.sb.auth.signUp({ email: this.email(u), password: p, options: { data: { username: u } } });
         if (r.error) throw r.error;
         if (!r.data.session) throw new Error('confirm');
-        S.guest = false; await this.setUser(r.data.user); ov.hidden = true; ov.innerHTML = '';
+        await this.setUser(r.data.user, mode === 'signup'); ov.hidden = true; ov.innerHTML = '';
         toast(mode === 'login' ? '¡Hola de nuevo!' : '¡Cuenta creada!', u, '✓'); SFX.ach();
       } catch (ex) {
         const m = String(ex?.message || '');
@@ -2077,7 +2083,7 @@ const NET = {
     this.board = error ? null : data; this.renderRank();
   },
   async push(force) {
-    if (this.mode !== 'online' || !this.user || this.pushing) return;
+    if (this.mode !== 'online' || !this.user || this.pushing || this.switching) return;
     const row = { xp: S.xp, lv: levelOf(S.xp).lv, cards: Object.keys(S.cards).length, streak: S.bestStreak, exam: S.bestExam || 0 };
     const sig = JSON.stringify(row); if (!force && sig === this.lastPushed) return;
     this.pushing = true;
