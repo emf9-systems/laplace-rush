@@ -2064,7 +2064,8 @@ const NET = {
         toast(mode === 'login' ? '¡Hola de nuevo!' : '¡Cuenta creada!', u, '✓'); SFX.ach();
       } catch (ex) {
         const m = String(ex?.message || '');
-        err.textContent = /Invalid login/i.test(m) ? 'Usuario o contraseña incorrectos.' : /already registered|already exists/i.test(m) ? 'Ese usuario ya existe. Elige otro.' : m === 'confirm' ? 'La cuenta quedó esperando confirmación por correo. El administrador debe desactivar "Confirm email" en Supabase.' : /rate limit/i.test(m) ? 'Demasiados intentos. Espera un minuto.' : 'No se pudo conectar. Intenta de nuevo.';
+        err.textContent = /Invalid login/i.test(m) ? 'Usuario o contraseña incorrectos.' : /already registered|already exists/i.test(m) ? 'Ese usuario ya existe. Elige otro.' : m === 'confirm' ? 'La cuenta quedó esperando confirmación por correo. El administrador debe desactivar "Confirm email" en Supabase.' : /rate limit/i.test(m) ? 'Demasiados intentos. Espera un minuto.' : /database error/i.test(m) ? 'El servidor no pudo crear el perfil. Revisa que supabase.sql se haya ejecutado completo.' : /email.*invalid|invalid.*email/i.test(m) ? 'El servidor rechazó el usuario interno.' : 'No se pudo conectar. Intenta de nuevo.';
+        err.textContent += ' (Detalle: ' + (ex?.code ? ex.code + ' · ' : '') + (m || 'sin mensaje') + ')'; console.error(ex);
         sbt.disabled = false; sbt.textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
       }
     };
