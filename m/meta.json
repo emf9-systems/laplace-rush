@@ -1,0 +1,866 @@
+[
+{
+"f": "m001.webp",
+"o": "102149.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 11
+},
+{
+"f": "m002.webp",
+"o": "12083.gif",
+"anim": true,
+"w": 320,
+"h": 240,
+"kb": 22
+},
+{
+"f": "m003.webp",
+"o": "12084.gif",
+"anim": true,
+"w": 320,
+"h": 240,
+"kb": 29
+},
+{
+"f": "m004.webp",
+"o": "12085.gif",
+"anim": true,
+"w": 225,
+"h": 300,
+"kb": 65
+},
+{
+"f": "m005.webp",
+"o": "12088.gif",
+"anim": true,
+"w": 120,
+"h": 150,
+"kb": 70
+},
+{
+"f": "m006.webp",
+"o": "12096.gif",
+"anim": true,
+"w": 340,
+"h": 255,
+"kb": 104
+},
+{
+"f": "m007.webp",
+"o": "12099.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 142
+},
+{
+"f": "m008.webp",
+"o": "12100.gif",
+"anim": true,
+"w": 340,
+"h": 255,
+"kb": 82
+},
+{
+"f": "m009.webp",
+"o": "12107.gif",
+"anim": true,
+"w": 235,
+"h": 340,
+"kb": 10
+},
+{
+"f": "m010.webp",
+"o": "12120.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 47
+},
+{
+"f": "m011.webp",
+"o": "12137.gif",
+"anim": true,
+"w": 340,
+"h": 255,
+"kb": 7
+},
+{
+"f": "m012.webp",
+"o": "12140.gif",
+"anim": true,
+"w": 320,
+"h": 240,
+"kb": 185
+},
+{
+"f": "m013.webp",
+"o": "12143.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 86
+},
+{
+"f": "m014.webp",
+"o": "1295767.png",
+"anim": false,
+"w": 620,
+"h": 349,
+"kb": 15
+},
+{
+"f": "m015.webp",
+"o": "1365588.jpeg",
+"anim": false,
+"w": 620,
+"h": 439,
+"kb": 52
+},
+{
+"f": "m016.webp",
+"o": "1365589.jpeg",
+"anim": false,
+"w": 620,
+"h": 511,
+"kb": 39
+},
+{
+"f": "m017.webp",
+"o": "1394453.jpg",
+"anim": false,
+"w": 620,
+"h": 554,
+"kb": 60
+},
+{
+"f": "m018.webp",
+"o": "220292.gif",
+"anim": true,
+"w": 220,
+"h": 219,
+"kb": 152
+},
+{
+"f": "m019.webp",
+"o": "221698.gif",
+"anim": true,
+"w": 340,
+"h": 192,
+"kb": 112
+},
+{
+"f": "m020.webp",
+"o": "221699.gif",
+"anim": true,
+"w": 220,
+"h": 334,
+"kb": 185
+},
+{
+"f": "m021.webp",
+"o": "221702.gif",
+"anim": true,
+"w": 340,
+"h": 234,
+"kb": 187
+},
+{
+"f": "m022.webp",
+"o": "221704.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 177
+},
+{
+"f": "m023.webp",
+"o": "221705.gif",
+"anim": true,
+"w": 340,
+"h": 223,
+"kb": 336
+},
+{
+"f": "m024.webp",
+"o": "221706.gif",
+"anim": true,
+"w": 340,
+"h": 190,
+"kb": 802
+},
+{
+"f": "m025.webp",
+"o": "223541.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 73
+},
+{
+"f": "m026.webp",
+"o": "392427.jpg",
+"anim": false,
+"w": 620,
+"h": 349,
+"kb": 9
+},
+{
+"f": "m027.webp",
+"o": "392590.jpg",
+"anim": false,
+"w": 620,
+"h": 349,
+"kb": 13
+},
+{
+"f": "m028.webp",
+"o": "393e6bfc7641a7ac157529ca45876225.jpg",
+"anim": false,
+"w": 349,
+"h": 620,
+"kb": 16
+},
+{
+"f": "m029.webp",
+"o": "3cf1a735bfcc8b9ea0c5a875634430b6.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 15
+},
+{
+"f": "m030.webp",
+"o": "460cb1c11341f8beabcc8942153bd747.gif",
+"anim": true,
+"w": 340,
+"h": 340,
+"kb": 228
+},
+{
+"f": "m031.webp",
+"o": "4e06053b4ce3ee28ddceae0b64065af9.jpg",
+"anim": false,
+"w": 531,
+"h": 620,
+"kb": 21
+},
+{
+"f": "m032.webp",
+"o": "586955.jpg",
+"anim": false,
+"w": 620,
+"h": 439,
+"kb": 35
+},
+{
+"f": "m033.webp",
+"o": "611718.jpeg",
+"anim": false,
+"w": 439,
+"h": 620,
+"kb": 46
+},
+{
+"f": "m034.webp",
+"o": "63d7eb353cca3ed425c2dfbc4bfbcd59.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 23
+},
+{
+"f": "m035.webp",
+"o": "6ec57a74899ba19c34e516ebf46b485b.jpg",
+"anim": false,
+"w": 620,
+"h": 581,
+"kb": 18
+},
+{
+"f": "m036.webp",
+"o": "722319.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 38
+},
+{
+"f": "m037.webp",
+"o": "722320.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 24
+},
+{
+"f": "m038.webp",
+"o": "722322.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 27
+},
+{
+"f": "m039.webp",
+"o": "722323.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 31
+},
+{
+"f": "m040.webp",
+"o": "722324.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 27
+},
+{
+"f": "m041.webp",
+"o": "722326.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 28
+},
+{
+"f": "m042.webp",
+"o": "722327.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 19
+},
+{
+"f": "m043.webp",
+"o": "722328.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 42
+},
+{
+"f": "m044.webp",
+"o": "722331.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 15
+},
+{
+"f": "m045.webp",
+"o": "722333.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 21
+},
+{
+"f": "m046.webp",
+"o": "722334.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 31
+},
+{
+"f": "m047.webp",
+"o": "7661bae60c00e92133f3cdfaa8578e9b.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 26
+},
+{
+"f": "m048.webp",
+"o": "77077.gif",
+"anim": true,
+"w": 340,
+"h": 305,
+"kb": 153
+},
+{
+"f": "m049.webp",
+"o": "77079.gif",
+"anim": true,
+"w": 340,
+"h": 266,
+"kb": 187
+},
+{
+"f": "m050.webp",
+"o": "77081.gif",
+"anim": true,
+"w": 327,
+"h": 340,
+"kb": 131
+},
+{
+"f": "m051.webp",
+"o": "77083.gif",
+"anim": true,
+"w": 340,
+"h": 176,
+"kb": 282
+},
+{
+"f": "m052.webp",
+"o": "77084.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 272
+},
+{
+"f": "m053.webp",
+"o": "77093.gif",
+"anim": true,
+"w": 340,
+"h": 150,
+"kb": 271
+},
+{
+"f": "m054.webp",
+"o": "77100.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 206
+},
+{
+"f": "m055.webp",
+"o": "77101.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 117
+},
+{
+"f": "m056.webp",
+"o": "77104.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 186
+},
+{
+"f": "m057.webp",
+"o": "77126.gif",
+"anim": true,
+"w": 340,
+"h": 294,
+"kb": 85
+},
+{
+"f": "m058.webp",
+"o": "77139.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 247
+},
+{
+"f": "m059.webp",
+"o": "77152.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 159
+},
+{
+"f": "m060.webp",
+"o": "77162.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 82
+},
+{
+"f": "m061.webp",
+"o": "77177.gif",
+"anim": true,
+"w": 340,
+"h": 238,
+"kb": 72
+},
+{
+"f": "m062.webp",
+"o": "77211.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 142
+},
+{
+"f": "m063.webp",
+"o": "77495.gif",
+"anim": true,
+"w": 340,
+"h": 195,
+"kb": 146
+},
+{
+"f": "m064.webp",
+"o": "77776.gif",
+"anim": true,
+"w": 340,
+"h": 190,
+"kb": 181
+},
+{
+"f": "m065.webp",
+"o": "77785.gif",
+"anim": true,
+"w": 340,
+"h": 191,
+"kb": 219
+},
+{
+"f": "m066.webp",
+"o": "7e1456496591f7393b0bafe1f3a7a3cc.jpg",
+"anim": false,
+"w": 576,
+"h": 576,
+"kb": 26
+},
+{
+"f": "m067.webp",
+"o": "87361.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 32
+},
+{
+"f": "m068.webp",
+"o": "90782.jpg",
+"anim": false,
+"w": 620,
+"h": 465,
+"kb": 31
+},
+{
+"f": "m069.webp",
+"o": "90787.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 35
+},
+{
+"f": "m070.webp",
+"o": "90788.jpg",
+"anim": false,
+"w": 620,
+"h": 388,
+"kb": 35
+},
+{
+"f": "m071.webp",
+"o": "90790.jpg",
+"anim": false,
+"w": 620,
+"h": 349,
+"kb": 33
+},
+{
+"f": "m072.webp",
+"o": "90795.jpg",
+"anim": false,
+"w": 620,
+"h": 422,
+"kb": 46
+},
+{
+"f": "m073.webp",
+"o": "90b3be307e8a39fe8bcbba68bb63b0bf.jpg",
+"anim": false,
+"w": 348,
+"h": 620,
+"kb": 13
+},
+{
+"f": "m074.webp",
+"o": "9c82db3873ff3edd9948881b2be436fb.jpg",
+"anim": false,
+"w": 531,
+"h": 620,
+"kb": 18
+},
+{
+"f": "m075.webp",
+"o": "anime-eiga-k-on.gif",
+"anim": true,
+"w": 212,
+"h": 340,
+"kb": 72
+},
+{
+"f": "m076.webp",
+"o": "attention-listen.gif",
+"anim": true,
+"w": 340,
+"h": 274,
+"kb": 131
+},
+{
+"f": "m077.webp",
+"o": "bda595fe8ccbef10fa41eb605bceb37b.jpg",
+"anim": false,
+"w": 480,
+"h": 480,
+"kb": 26
+},
+{
+"f": "m078.webp",
+"o": "bocchi-the-rock-bocchi (1).gif",
+"anim": true,
+"w": 220,
+"h": 220,
+"kb": 46
+},
+{
+"f": "m079.webp",
+"o": "bocchi-the-rock-bocchi-the-rock-meme.gif",
+"anim": false,
+"w": 498,
+"h": 429,
+"kb": 10
+},
+{
+"f": "m080.webp",
+"o": "bocchi-the-rock-bocchi.gif",
+"anim": true,
+"w": 340,
+"h": 190,
+"kb": 574
+},
+{
+"f": "m081.webp",
+"o": "bocchi-the-rock-kita-ikuyo.gif",
+"anim": true,
+"w": 340,
+"h": 340,
+"kb": 78
+},
+{
+"f": "m082.webp",
+"o": "cat-girl-anime.gif",
+"anim": true,
+"w": 320,
+"h": 240,
+"kb": 185
+},
+{
+"f": "m083.webp",
+"o": "d39cd35ea0f7e04a90c6fa776a918d1a.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 50
+},
+{
+"f": "m084.webp",
+"o": "dcc7f3267db75adb9892368a38d49baf.jpg",
+"anim": false,
+"w": 526,
+"h": 550,
+"kb": 16
+},
+{
+"f": "m085.webp",
+"o": "e0a288222f6fd0deafe5597730875991.jpg",
+"anim": false,
+"w": 446,
+"h": 620,
+"kb": 16
+},
+{
+"f": "m086.webp",
+"o": "eb576047bd52c8769d1d030e2019a275.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 20
+},
+{
+"f": "m087.webp",
+"o": "ec25df8c4dbf48ac6e71e71551785f15.jpg",
+"anim": false,
+"w": 620,
+"h": 620,
+"kb": 53
+},
+{
+"f": "m088.webp",
+"o": "fa0ba8f97d975d202e60769ecaaaad88.jpg",
+"anim": false,
+"w": 400,
+"h": 304,
+"kb": 14
+},
+{
+"f": "m089.webp",
+"o": "gotou_hitori_bocchi_render_by_minhchauk1k_dfkshd7-414w-2x.png",
+"anim": false,
+"w": 352,
+"h": 620,
+"kb": 31
+},
+{
+"f": "m090.webp",
+"o": "griddy-miku.gif",
+"anim": true,
+"w": 220,
+"h": 220,
+"kb": 87
+},
+{
+"f": "m091.webp",
+"o": "hitori_gotoh_bocchi_the_rock_render_png_by_marcopolo157_dh8sr6n-pre.png",
+"anim": false,
+"w": 620,
+"h": 527,
+"kb": 29
+},
+{
+"f": "m092.webp",
+"o": "i-don't-know-what-to-do.gif",
+"anim": true,
+"w": 316,
+"h": 340,
+"kb": 251
+},
+{
+"f": "m093.webp",
+"o": "k-on-anime.gif",
+"anim": true,
+"w": 99,
+"h": 340,
+"kb": 70
+},
+{
+"f": "m094.webp",
+"o": "k-on-ritsu-heart-k-on-ritsu.gif",
+"anim": true,
+"w": 330,
+"h": 340,
+"kb": 68
+},
+{
+"f": "m095.webp",
+"o": "kasane-teto.gif",
+"anim": false,
+"w": 498,
+"h": 489,
+"kb": 10
+},
+{
+"f": "m096.webp",
+"o": "miku-pjsk.gif",
+"anim": false,
+"w": 296,
+"h": 256,
+"kb": 12
+},
+{
+"f": "m097.webp",
+"o": "miku-teto.gif",
+"anim": true,
+"w": 250,
+"h": 250,
+"kb": 392
+},
+{
+"f": "m098.webp",
+"o": "mio-akiyama-k-on.gif",
+"anim": true,
+"w": 340,
+"h": 340,
+"kb": 136
+},
+{
+"f": "m099.webp",
+"o": "mugi-k-on.gif",
+"anim": false,
+"w": 44,
+"h": 44,
+"kb": 0
+},
+{
+"f": "m100.webp",
+"o": "pearto-teto.gif",
+"anim": true,
+"w": 340,
+"h": 340,
+"kb": 39
+},
+{
+"f": "m101.webp",
+"o": "ritsu-cutie.gif",
+"anim": true,
+"w": 340,
+"h": 301,
+"kb": 152
+},
+{
+"f": "m102.webp",
+"o": "tet-pear.gif",
+"anim": false,
+"w": 225,
+"h": 225,
+"kb": 2
+},
+{
+"f": "m103.webp",
+"o": "teto (1).gif",
+"anim": true,
+"w": 220,
+"h": 220,
+"kb": 13
+},
+{
+"f": "m104.webp",
+"o": "teto (2).gif",
+"anim": false,
+"w": 498,
+"h": 498,
+"kb": 10
+},
+{
+"f": "m105.webp",
+"o": "teto-kasane-teto.gif",
+"anim": true,
+"w": 300,
+"h": 300,
+"kb": 205
+},
+{
+"f": "m106.webp",
+"o": "teto-teto-kasane.gif",
+"anim": true,
+"w": 283,
+"h": 340,
+"kb": 55
+},
+{
+"f": "m107.webp",
+"o": "teto.gif",
+"anim": true,
+"w": 340,
+"h": 340,
+"kb": 185
+},
+{
+"f": "m108.webp",
+"o": "yui-k-on.gif",
+"anim": false,
+"w": 493,
+"h": 498,
+"kb": 9
+}
+]
