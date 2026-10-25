@@ -1929,7 +1929,7 @@ function renderRank() {
   w.append(NET.profileCard());
   const online = h('<div class="card"><b>En línea ahora</b><div class="row small muted" id="online" style="margin-top:6px">Conectando…</div><div class="small" id="hype" style="margin-top:8px"></div></div>');
   w.append(online); NET.renderOnline();
-  const rk = h('<div class="rank" id="ranklist"><p class="muted small">Cargando ranking…</p></div>'); w.append(rk); NET.renderRank();
+  const rk = h('<div class="rank" id="ranklist"><p class="muted small">Cargando ranking…</p></div>'); w.append(rk); NET.renderRank(); NET.openRank();
   // Misiones
   const mw = h('<div class="card"><b>Misiones de hoy</b><div class="steps" style="margin-top:10px;gap:8px"></div></div>');
   (S.daily?.ms || []).forEach(m => $('.steps', mw).append(h('<div class="mission"><div><div class="small">' + m.n + '</div><div class="meter" style="margin-top:6px"><i style="width:' + Math.min(100, 100 * m.p / m.g) + '%"></i></div></div><span class="small ' + (m.done ? 'ok-t' : 'gold-t') + '">' + (m.done ? '✓' : Math.min(m.p, m.g) + '/' + m.g + ' · ' + m.c) + '</span></div>')));
@@ -2002,7 +2002,7 @@ const NET = {
     const { data } = await this.sb.auth.getSession();
     await this.setUser(data.session?.user || null);
     this.sb.auth.onAuthStateChange((_e, s) => { if (!this.switching && (s?.user?.id || null) !== (this.user?.id || null)) this.setUser(s?.user || null); });
-    this.loadBoard(); setInterval(() => { if (!document.hidden && VIEW === 'rank') this.loadBoard(); }, 30000);
+    this.loadBoard(); setInterval(() => { if (!document.hidden && VIEW === 'rank') this.loadBoard(); }, 10000);
     this.joinLobby();
     if (!this.user && !S.guest) this.authDialog();
   },
@@ -2077,6 +2077,11 @@ const NET = {
     };
     ov.append(box); setTimeout(() => form.u.focus(), 50);
   },
+  // Al abrir la pestaña Ranking: subir mi puntaje y traer la tabla al día (como mucho una vez cada 3 s)
+  async openRank() {
+    if (!this.sb || Date.now() - (this.lastOpen || 0) < 3000) return; this.lastOpen = Date.now();
+    clearTimeout(saveT); await this.push(true); await this.loadBoard();
+  },
   async loadBoard() {
     if (!this.sb) return;
     const { data, error } = await this.sb.from('profiles').select('id,username,xp,lv,cards,streak,exam').order('xp', { ascending: false }).limit(100);
@@ -2092,7 +2097,7 @@ const NET = {
       const b = await this.sb.from('progress').upsert({ id: this.user.id, save: JSON.parse(JSON.stringify(S)), updated_at: new Date().toISOString() });
       if (!a.error && !b.error) this.lastPushed = sig;
     } catch (e) { }
-    this.pushing = false; if (VIEW === 'rank') this.loadBoard();
+    this.pushing = false;
   },
   joinLobby() {
     try {
